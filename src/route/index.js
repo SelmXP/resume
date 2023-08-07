@@ -5,6 +5,35 @@ const router = express.Router()
 
 // ================================================================
 
+var header = {
+  name: {
+    firstname: 'Ivan',
+    lastname: 'Ivanov',
+  },
+  position: 'Junior Fullstack JS Developer',
+  salary: '600$ в місяць',
+  address: 'Ivano-Frankivsk region, Kalush',
+}
+
+var footer = {
+  social: {
+    email: {
+      text: 'dmytro@mail.com',
+      href: 'mailto:dmytro@mail.com',
+    },
+    phone: {
+      text: '+380670000123',
+      href: 'tel:+380670000123',
+    },
+    linkedin: {
+      text: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/dmytro-test',
+    },
+  },
+}
+
+// ================================================================
+
 // router.get Створює нам один ентпоїнт
 
 //           ↙ тут вводимо шлях (PATH) до сторінки
@@ -25,18 +54,10 @@ router.get('/summary', function (req, res) {
     // ↙ сюди вводимо JSON дані
 
     page: {
-      title: 'Resume',
+      title: 'Resume | Summary',
     },
 
-    header: {
-      name: {
-        firstname: 'Ivan',
-        lastname: 'Ivanov',
-      },
-      position: 'Junior Fullstack JS Developer',
-      salary: '600$ в місяць',
-      address: 'Ivano-Frankivsk region, Kalush',
-    },
+    header,
 
     main: {
       summary: {
@@ -54,22 +75,7 @@ router.get('/summary', function (req, res) {
       },
     },
 
-    footer: {
-      social: {
-        email: {
-          text: 'dmytro@mail.com',
-          href: 'mailto:dmytro@mail.com',
-        },
-        phone: {
-          text: '+380670000123',
-          href: 'tel:+380670000123',
-        },
-        linkedin: {
-          text: 'LinkedIn',
-          href: 'https://www.linkedin.com/in/dmytro-test',
-        },
-      },
-    },
+    footer,
   })
 })
 
@@ -82,46 +88,28 @@ router.get('/skills', function (req, res) {
     // ↙ сюди вводимо JSON дані
 
     page: {
-      title: 'Resume',
+      title: 'Resume | Skills',
     },
 
-    header: {
-      name: {
-        firstname: 'Ivan',
-        lastname: 'Ivanov',
-      },
-      position: 'Junior Fullstack JS Developer',
-      salary: '600$ в місяць',
-      address: 'Ivano-Frankivsk region, Kalush',
-    },
+    header,
 
     main: {
       skills: [
-        'HTML',
-        'Handlebars',
-        'VS Code',
-        'Git',
-        'Terminal',
-        'NPM',
+        { name: 'HTML', point: 10, isTop: true },
+        { name: 'Handlebars', point: 8, isTop: true },
+        { name: 'VS Code & NPM', point: 9, isTop: false },
+        { name: 'Git & Terminal', point: 7 },
+        { name: 'React.js', point: 0 },
+        { name: 'PHP', point: null },
+      ],
+      hobbies: [
+        { name: 'Хоббі 1', isMain: true },
+        { name: 'Хоббі 2', isMain: false },
+        { name: 'Хоббі 3', isMain: true },
       ],
     },
 
-    footer: {
-      social: {
-        email: {
-          text: 'dmytro@mail.com',
-          href: 'mailto:dmytro@mail.com',
-        },
-        phone: {
-          text: '+380670000123',
-          href: 'tel:+380670000123',
-        },
-        linkedin: {
-          text: 'LinkedIn',
-          href: 'https://www.linkedin.com/in/dmytro-test',
-        },
-      },
-    },
+    footer,
   })
 })
 
@@ -134,45 +122,96 @@ router.get('/education', function (req, res) {
     // ↙ сюди вводимо JSON дані
 
     page: {
-      title: 'Resume',
+      title: 'Resume | Education',
     },
 
-    header: {
-      name: {
-        firstname: 'Ivan',
-        lastname: 'Ivanov',
-      },
-      position: 'Junior Fullstack JS Developer',
-      salary: '600$ в місяць',
-      address: 'Ivano-Frankivsk region, Kalush',
-    },
+    header,
 
     main: {
       education: [
-        'Школа',
-        'СПТУ',
-        'Університет',
-        'IT-Brais',
+        { name: 'Школа', isEnd: false },
+        { name: 'СПТУ', isEnd: true },
+        { name: 'Університет', isEnd: true },
+        { name: 'IT-Brais', isEnd: false },
+      ],
+      certificates: [
+        { name: 'Сертифікат 1', id: 3 },
+        { name: 'Сертифікат 2', id: 2 },
+        { name: 'Сертифікат 3', id: 1 },
       ],
     },
 
-    footer: {
-      social: {
-        email: {
-          text: 'dmytro@mail.com',
-          href: 'mailto:dmytro@mail.com',
-        },
-        phone: {
-          text: '+380670000123',
-          href: 'tel:+380670000123',
-        },
-        linkedin: {
-          text: 'LinkedIn',
-          href: 'https://www.linkedin.com/in/dmytro-test',
-        },
-      },
-    },
+    footer,
   })
 })
+
+// ================================================================
+
+//              ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/work', function (req, res) {
+  //             ↙ cюди вводимо назву файлу з сontainer
+  res.render('work', {
+    // ↙ сюди вводимо JSON дані
+
+    layout: 'big',
+
+    page: {
+      title: 'Resume | Work',
+    },
+
+    header,
+
+    main: {
+      work: [
+        {
+          position: 'Junior Fullstack Developer',
+          company: {
+            name: 'IT Brains',
+            // url: 'https://it-brains.com.ua/',
+          },
+          duration: {
+            from: '10.10.2022',
+            // to: '22.03.2023',
+            to: null,
+          },
+
+          projectAmount: 1,
+
+          projects: [
+            {
+              name: 'Resume',
+              url: 'https://resume.com.ua/',
+              about:
+                'Airbnb competitor. High-load application for searching apartments',
+              stackAmount: 3,
+              stacks: [
+                {
+                  name: 'React.js',
+                },
+                {
+                  name: 'HTML / CSS',
+                },
+                {
+                  name: 'Nodejs',
+                },
+              ],
+              awardAmount: 2,
+              awards: [
+                {
+                  name: 'Background verification - is a feature that provides users to prove that they are real persons',
+                },
+                {
+                  name: 'Preparing SEO optimised pages. The automated process of getting data for the app from documents',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    footer,
+  })
+})
+
 // Підключаємо роутер до бек-енду
 module.exports = router
