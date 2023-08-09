@@ -240,13 +240,6 @@ router.get('/person', function (req, res) {
             'Massachusetts Institute of Technology',
           graduationYear: 2012,
         },
-        {
-          degree: 'Bachelor of Science',
-          major: 'Computer Science',
-          university:
-            'Massachusetts Institute of Technology',
-          graduationYear: 2012,
-        },
       ],
       workExperience: [
         {
