@@ -1,0 +1,269 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+{{!-- <div>
+    <main>
+        <div>
+            <h1>{{name}}</h1>
+        </div>
+        <section>
+        </section>
+    </main>
+</div> --}}
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
+
+<div>
+    <main>
+        <section>
+            {{> title data=name big=true}}
+            <div>
+                <b>Description:</b> {{description}}
+            </div>
+            <br>
+            <div>
+                <b>History:</b>
+                {{#with history}}
+                year: <date>{{year}}</date>, founder: {{founder}}<br>{{/with}}
+            </div>
+            <br>
+            <hr>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Types
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                {{#each types}} <li class="list-group-item"><span
+                                        class="badge text-bg-info">{{this}}</span>
+                                </li> {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Syntax
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Variables
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#each syntax.variables}}
+                                    <li><a class="dropdown-item" href="#"> {{this}} </a></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Functions
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#each syntax.functions}}
+                                    <li><a class="dropdown-item" href="#"> {{this}} </a></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Conditionals
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#each syntax.conditionals}}
+                                    <li><a class="dropdown-item" href="#"> {{this}} </a></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Loops
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#each syntax.loops}}
+                                    <li><a class="dropdown-item" href="#"> {{this}} </a></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Classes
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#each syntax.classes}}
+                                    <li><a class="dropdown-item" href="#"> {{this}} </a></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Features
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                {{#each features}} <li class="list-group-item"> {{this}} </li> {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Libraries
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                {{#each libraries}} <li class="list-group-item"> {{this}} </li> {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Tools
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                {{#each tools}} <li class="list-group-item"> {{this}} </li> {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            Community
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                {{#each community}}
+                                <li class="list-group-item">
+                                    <button type="button" class="btn btn-link">{{this.name}}</button>
+                                    ({{this.type}})
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            ==я спочатку цей код набрав, що внизу а потім з урока поняв що треба з бутстрапом===
+
+            <div>
+                <h4>Types:</h4>
+                <ul>
+                    {{#each types}} <li> {{this}} </li> {{/each}}
+                </ul>
+            </div><br>
+
+            <div>
+                <h4>Syntax:</h4>
+                <ul>
+                    <li>
+                        <b>Variables:</b>
+                        {{#each syntax.variables}} {{this}}; {{/each}}
+                    </li>
+                    <li>
+                        <b>Functions:</b>
+                        {{#each syntax.functions}} {{this}}; {{/each}}
+                    </li>
+                    <li>
+                        <b>Conditionals:</b>
+                        {{#each syntax.conditionals}} {{this}}; {{/each}}
+                    </li>
+                    <li>
+                        <b>Loops:</b>
+                        {{#each syntax.loops}} {{this}}; {{/each}}
+                    </li>
+                    <li>
+                        <b>Classes</b>
+                        {{#each syntax.classes}} {{this}}; {{/each}}
+                    </li>
+                </ul>
+            </div><br>
+
+            <div>
+                <h4>Features:</h4>
+                <ul>
+                    {{#each features}} <li> {{this}} </li> {{/each}}
+                </ul>
+            </div><br>
+
+            <div>
+                <h4>Libraries:</h4>
+                <ul>
+                    {{#each libraries}} <li> {{this}} </li> {{/each}}
+                </ul>
+            </div><br>
+
+            <div>
+                <h4>Tools:</h4>
+                <ul>
+                    {{#each tools}} <li> {{this}} </li> {{/each}}
+                </ul>
+            </div><br>
+
+            <div>
+                <h4>Community:</h4>
+                <ul>
+                    {{#each community}}
+                    <li>
+                        {{this.name}} ({{this.type}})
+                    </li>
+                    {{/each}}
+                </ul>
+            </div><br>
+        </section>
+    </main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
