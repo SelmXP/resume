@@ -1,0 +1,271 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<div>
+    <main>
+        <section>
+            {{> title data="Car" big=true}}
+            <hr>
+            <div>
+                <b>Make: </b>{{make}}
+            </div>
+            <div>
+                <b>Model: </b>{{model}}
+            </div>
+            <div>
+                <b>Year: </b>
+                <date>{{year}}</date>
+            </div>
+            <div>
+                <b>Color: </b>{{color}}
+            </div>
+            <hr>
+
+            <div>
+                {{#with features}}
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Features</h3>
+                    </div>
+                    {{#with interior}}
+                    <div class="card-body">
+                        <div>
+
+                            <h4 class="card-title">Interior</h4>
+
+                            <!-- Example single danger button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Seats
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#with seats}}
+                                    <li><a class="dropdown-item" href="#">material: {{material}}</a></li>
+                                    <li><a class="dropdown-item" href="#">color: {{color}}</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            {{#if heated}}heated: YES
+                                            {{else}}heated: NO{{/if}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            {{#if ventilated}}
+                                            ventilated: YES
+                                            {{else}}ventilated: NO{{/if}}
+                                        </a>
+                                    </li>
+                                    {{/with}}
+                                </ul>
+                            </div>
+
+                            {{#with dashboard}}
+                            <!-- Example single danger button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Dashboard
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">material: {{material}}</a></li>
+                                    <li><a class="dropdown-item" href="#">color: {{color}}</a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                            display: {{#with display}}
+                                            {{type}}, {{size}}, {{resolution}},
+                                            {{#if touchscreen}}touchscreen{{/if}}
+                                            {{/with}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {{/with}}
+
+                            {{#with audio}}
+                            <!-- Example single danger button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Audio
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">system: {{system}}</a></li>
+                                    <li><a class="dropdown-item" href="#">speakers: {{speakers}}</a></li>
+                                    {{#if subwoofer}}<li><a class="dropdown-item" href="#">subwoofer</a></li> {{/if}}
+                                    {{#if bluetooth}}<li><a class="dropdown-item" href="#">bluetooth</a></li> {{/if}}
+                                    {{#if USB}}<li><a class="dropdown-item" href="#">USB</a></li> {{/if}}
+                                </ul>
+                            </div>
+                            {{/with}}
+                        </div>
+                        {{/with}}
+                        <hr>
+
+                        {{#with exterior}}
+                        <div>
+                            <h4 class="card-title">Exterior</h4>
+
+                            <!-- Example single danger button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Wheels
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#with wheels}}
+                                    <li><a class="dropdown-item" href="#">Size: {{size}}</a></li>
+                                    <li><a class="dropdown-item" href="#">Type: {{type}}</a></li>
+                                    <li><a class="dropdown-item" href="#">Color: {{color}}</a></li>
+                                    {{/with}}
+                                </ul>
+                            </div>
+
+                            <!-- Example single danger button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Headlights
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#with headlights}}
+                                    <li><a class="dropdown-item" href="#">Type: {{type}}</a></li>
+                                    <li><a class="dropdown-item" href="#">Brightness: {{brightness}}</a></li>
+                                    {{#if automatic}}<li><a class="dropdown-item" href="#">Automatic</a></li> {{/if}}
+                                    {{/with}}
+                                </ul>
+                            </div>
+
+                            <!-- Example single danger button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Sunroof
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#with sunroof}}
+                                    <li><a class="dropdown-item" href="#">Type: {{type}}</a></li>
+                                    <li><a class="dropdown-item" href="#">Size: {{size}}</a></li>
+                                    {{#if automatic}}<li><a class="dropdown-item" href="#">Automatic</a></li> {{/if}}
+                                    {{/with}}
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        {{/with}}
+                        <hr>
+                        {{#with safety}}
+                        <div>
+                            <h4 class="card-title">Safety</h4>
+
+                            <!-- Example single danger button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Airbags
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{#with airbags}}
+                                    <li><a class="dropdown-item" href="#">Front: {{front}}</a></li>
+                                    <li><a class="dropdown-item" href="#">Side: {{side}}</a></li>
+                                    <li><a class="dropdown-item" href="#">Knee: {{knee}}</a></li>
+                                    <li><a class="dropdown-item" href="#">Rear: {{rear}}</a></li>
+                                    {{/with}}
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        {{/with}}
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+
+            <hr>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Engine</h3>
+                </div>
+
+                {{#with engine}}
+                <ul class="list-group text-start">
+                    <li class="list-group-item"> type: {{type}}</li>
+                    <li class="list-group-item"> displacement: {{displacement}}</li>
+                    <li class="list-group-item"> horsepower: {{horsepower}}</li>
+                    <li class="list-group-item"> torque: {{torque}}</li>
+                    <li class="list-group-item"> <b> transmission:</b>:
+                        {{#with transmission}}
+                        <ul class="list-group text-start">
+                            <li class="list-group-item"><em>type: {{type}}</em></li>
+                            <li class="list-group-item"><em>gears: {{gears}}</em></li>
+                        </ul>
+                        {{/with}}
+                    </li>
+
+                </ul>
+                {{/with}}
+            </div>
+
+            <hr>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Fuel economy</h3>
+                </div>
+
+                {{#with fuel_economy}}
+                <ul class="list-group text-start">
+                    <li class="list-group-item"> city: {{city}}</li>
+                    <li class="list-group-item"> highway: {{highway}}</li>
+                    <li class="list-group-item"> combined: {{combined}}</li>
+                </ul>
+                {{/with}}
+
+            </div>
+            <hr>
+
+            <div>
+                <div class="card text-center text-bg-success mb-3">
+                    <div class="card-header">
+                        <h3>Price</h3>
+                    </div>
+                    <div class="card-body">
+
+                        {{#with price}}
+                        <ul class="list-group text-start">
+                            <li class="list-group-item"> base: {{base}}</li>
+                            <li class="list-group-item"> destination: {{destination}}</li>
+                            <li class="list-group-item"> <b>options</b>:
+                                {{#with options}}
+                                <ul class="list-group text-start">
+                                    <li class="list-group-item"><em>navigation: {{navigation}}</em></li>
+                                    <li class="list-group-item"><em>moonroof: {{moonroof}}</em></li>
+                                    <li class="list-group-item"><em>premium paint: {{premium_paint}}</em></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                        {{/with}}
+                        {{/with}}
+                    </div>
+                    <div class="card-footer ">
+                        <button type="button" class="btn btn-danger">
+                            <h2>Total: {{price.total}}</h2>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
