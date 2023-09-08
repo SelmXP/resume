@@ -1,0 +1,109 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<div>
+    <main>
+        <section>
+            {{> title data="Mac" big=true}}
+            <hr>
+
+            <div>
+                <div class="card text-center mb-3">
+                    <div class="card-header">
+                        {{> title data=name}}
+                    </div>
+                    <div class="card-body text-start">
+                        Description: {{description}} <br>
+                        Category: {{category}} <br><br>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Features</h4>
+                            </div>
+                            {{#with features}}
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><b>Processor:</b>
+                                    {{#with processor}}
+                                    {{brand}}, {{model}}, {{speed}}, {{cores}} cores, {{cache}} cache
+                                    {{/with}}
+                                </li>
+                                <li class="list-group-item"><b>Memory:</b>
+                                    {{#with memory}}
+                                    {{type}}, {{size}}, {{speed}}
+                                    {{/with}}
+                                </li>
+                                <li class="list-group-item"><b>Storage:</b>
+                                    {{#with storage}}
+                                    {{type}}, {{size}}
+                                    {{/with}}</li>
+                                <li class="list-group-item"><b>Display:</b>
+                                    {{#with display}}
+                                    {{size}}, {{resolution}}, {{technology}}, {{color_space}}, {{brightness}},
+                                    {{refresh_rate}}
+                                    {{/with}}
+                                </li>
+                                <li class="list-group-item"><b>Graphics:</b>
+                                    {{#with graphics}}
+                                    {{brand}}, {{model}}, {{memory}}
+                                    {{/with}}</li>
+                                <li class="list-group-item"><b>Ports:</b>
+                                    <ul class="list-group text-start">
+                                        {{#each ports}}
+                                        <li class="list-group-item">
+                                            type: {{type}}<br>
+                                            count: {{count}}<br>
+                                            {{#if features}}
+                                            features:
+                                            <ul>
+                                                {{#each features}}
+                                                <li>
+                                                    {{this}}<br>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                            {{/if}}
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                                <li class="list-group-item"><b>Battery:</b>
+                                    {{#with battery}}
+                                    {{type}}, {{capacity}}, {{life}}<br>
+                                    {{/with}}</li>
+                                <li class="list-group-item"><b>Weight: </b>{{weight}}</li>
+                                <li class="list-group-item"><b>Dimensions:</b>
+                                    {{#with dimensions}}
+                                    height: {{height}}, width: {{width}}, depth: {{depth}}<br>
+                                    {{/with}}</li>
+                                <li class="list-group-item"><b>Operating System:</b> {{operating_system}}</li>
+                                <li class="list-group-item"><b>Accessories:</b>
+                                    <ul class="list-group text-start">
+                                        {{#each accessories}}
+                                        <li class="list-group-item">
+                                            <b>name:</b> {{name}}
+                                            <b>price</b>: {{price}}
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                            </ul>
+                            {{/with}}
+                        </div>
+                    </div>
+                    <div class="card-footer ">
+                        <button type="button" class="btn btn-danger">
+                            <h3>Price: {{price}} $</h3>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </main>
+</div>
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
