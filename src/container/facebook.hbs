@@ -1,0 +1,179 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<div>
+    <main>
+        <section>
+            {{> title data=name big=true}}
+            <hr>
+
+            <div>
+                <div class="card text-center mb-3">
+                    <div class="card-header">
+                        {{> title data="Users:"}}
+                    </div>
+                    <div class="card-body text-start">
+                        <ul>
+                            {{#each users}}
+                            <li>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        {{name}}
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">
+                                                <b>id:</b> {{id}}<br />
+                                                <b>name:</b> {{name}}<br />
+                                                <b>gender:</b> {{gender}}<br />
+                                                <b>age:</b> {{age}}<br />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <br />
+                                {{#if friends}}
+                                <b>Friends:</b>
+                                <ul>
+                                    <li>
+                                        {{#each friends}}
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-info dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                {{name}}
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+                                                        <b>id:</b> {{id}}<br />
+                                                        <b>name:</b> {{name}}<br />
+                                                        <b>gender:</b> {{gender}}<br />
+                                                        <b>age:</b> {{age}}<br />
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        {{#if mutual_friends}}
+                                        <br /><b>Mutual Friends:</b>
+                                        <ul>
+                                            {{#each mutual_friends}}
+                                            <li>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                        {{name}}
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#">
+                                                                <b>id:</b> {{id}}<br />
+                                                                <b>name:</b> {{name}}<br />
+                                                                <b>gender:</b> {{gender}}<br />
+                                                                <b>age:</b> {{age}}<br />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                {{#if mutual_friends}}
+                                                <br /><b>Mutual Friends:</b>
+                                                <ul>
+                                                    {{#each mutual_friends}}
+                                                    <li>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-info dropdown-toggle"
+                                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                                {{name}}
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <b>id:</b> {{id}}<br />
+                                                                        <b>name:</b> {{name}}<br />
+                                                                        <b>gender:</b> {{gender}}<br />
+                                                                        <b>age:</b> {{age}}<br />
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    {{/each}}
+                                                </ul>
+                                                {{/if}}
+                                            </li>
+                                            {{/each}}
+                                        </ul>
+                                        {{/if}} <br />
+                                        {{/each}}
+                                    </li>
+
+                                </ul>
+                                {{/if}} {{!-- friends --}}
+
+
+                                {{#if groups}}
+                                <b>Groups:</b>
+                                <ul>
+                                    {{#each groups}}
+                                    <li>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-primary  dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                {{name}}
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+                                                        <b>id:</b> {{id}}<br />
+                                                        <b>name:</b> {{name}}<br />
+                                                        <b>description:</b> {{description}}<br />
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <br />
+                                        <b>Members</b>
+                                        <ul>
+                                            {{#each members}}
+                                            <li>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                        {{name}}
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#">
+                                                                <b>id:</b> {{id}}<br />
+                                                                <b>name:</b> {{name}}<br />
+                                                                <b>gender:</b> {{gender}}<br />
+                                                                <b>age:</b> {{age}}<br />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            {{/each}}
+                                        </ul>
+                                    </li>
+                                    <br />
+                                    {{/each}}
+                                </ul>
+
+                                {{/if}}
+                                <hr />
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
