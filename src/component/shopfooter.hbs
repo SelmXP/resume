@@ -1,0 +1,18 @@
+{{#with footer}}
+<footer class="mt-0">
+	<section class="mt-0 pt-0">
+		<div class='row mx-0 mb-2'>
+			{{#each this}}
+			{{!-- <div class='d-grid nav col-2 mx-0 px-0 flex-column '> --}}
+				<div class='nav col-2 mx-0 px-0 flex-column '>
+					{{#each this}}
+					{{#if @last}} <a href='{{link}}' class='nav-link disabled mx-0 px-0' target="_blank">{{text}}</a>
+					{{else}} <a href='{{link}}' class='nav-link mx-0 px-0'>{{text}}</a>
+					{{/if}}
+					{{/each}}
+				</div>
+				{{/each}}
+			</div>
+	</section>
+</footer>
+{{/with}}

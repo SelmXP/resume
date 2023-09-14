@@ -1,0 +1,19 @@
+{{#with navigation}}
+<nav>
+	<section>
+		<div class='card mx-0 mt-3 mb-0'>
+			<div class='card-body px-0 py-2'>
+				<ul class="nav">
+					{{#each links}}
+					<li class="nav-item">
+						{{#if @last}} <a href='{{link}}' class='nav-link disabled' target="_blank">{{text}}</a>
+						{{else}}<a href='{{href}}' class='nav-link' target='_blank'>{{text}}</a>
+						{{/if}}
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</section>
+</nav>
+{{/with}}

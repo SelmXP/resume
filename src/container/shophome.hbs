@@ -1,23 +1,4 @@
-<main>
-    {{#with navigation}}
-    <section>
-        <div class='card mx-0 mt-3 mb-3'>
-            <div class='card-body px-0 py-2'>
-                <ul class="nav">
-                    {{#each links}}
-                    <li class="nav-item">
-                        <a href='{{href}}' class='nav-link' target='_blank'>{{text}}</a>
-                    </li>
-                    {{/each}}
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    {{/with}}
-
+<main class="mb-0">
     {{#with newsBlock}}
     <section>
         <h2 class="text-center title text-bg mb-4">{{title}}</h2>
@@ -37,10 +18,9 @@
             </div>
             {{/each}}
         </div>
+        <hr class='mx-0 mt-5 mb-2' />
     </section>
     {{/with}}
-
-    <hr class='mx-0 mt-4 mb-4' />
 
     {{#with goodsBlock}}
     <section>
@@ -77,10 +57,9 @@
     </section>
     {{/with}}
 
-    <hr class='mx-0 mt-4 mb-4' />
-
     {{#with subscribe}}
     <section>
+        <hr class='mx-0 mt-3 mb-5' />
         <div class='card text-bg-dark'>
             <div class='card-body p-2'>
                 <div class='card-title'>
@@ -93,10 +72,10 @@
                 {{/each}}
             </div>
         </div>
+        <hr class='mx-0 mt-5 mb-3' />
     </section>
     {{/with}}
 
-    <hr class='mx-0 mt-4 mb-4' />
 
     {{#with service}}
     <section>
@@ -112,25 +91,7 @@
                 {{/each}}
             </div>
         </div>
-
-    </section>
-    {{/with}}
-
-    {{#with footer}}
-    <section>
-        <hr class='mx-4' />
-        <div class='row mx-0 mb-2'>
-            {{#each this}}
-            {{!-- <div class='d-grid nav col-2 mx-0 px-0 flex-column '> --}}
-                <div class='nav col-2 mx-0 px-0 flex-column '>
-                    {{#each this}}
-                    {{#if @last}} <a href='{{link}}' class='nav-link disabled' target="_blank">{{text}}</a>
-                    {{else}} <a href='{{link}}' class='nav-link'>{{text}}</a>
-                    {{/if}}
-                    {{/each}}
-                </div>
-                {{/each}}
-            </div>
+        <hr class='mx-0 mt-5 mb-2' />
     </section>
     {{/with}}
 </main>
