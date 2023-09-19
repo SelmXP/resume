@@ -1,0 +1,73 @@
+<main>
+    <section>
+        {{#with header}}
+        <h1>{{title}}</h1>
+        {{#with button}}
+        <div class="text-start my-4">
+            <a type="button" class="btn btn-outline-dark" href={{link}} target="_blank">{{text}}</a>
+        </div>
+        {{/with}}
+        <hr class='mx-0 mt-5 mb-5' />
+        {{/with}}
+
+        <div class="row m-0">
+            {{#each goodsBlock}}
+            {{> cartGoodsItem}}
+            {{/each}}
+        </div>
+        <hr class='mx-0 mt-4 mb-5' />
+
+        {{#with total}}
+        <h2>{{title}}</h2>
+        <h1>{{amount}}</h1>
+        <p>{{delivery}}</p>
+        {{#each buttons}}
+        <a href='{{link}}' target='_blank' class="btn  mx-0 mt-3
+        {{#if this.isSuccess}}btn-success{{/if}}
+        {{#if this.isOutline}}btn-outline-success{{/if}}">{{text}} </a>
+        <br />
+        {{/each}}
+
+        {{/with}}
+        <hr class='mx-0 mt-5 mb-5' />
+
+        {{#with goodsOtherBlock}}
+        <h2 class="text-center mb-3">{{title}}</h2>
+        <div class="row row-cols-2 g-4">
+            {{#each cards}}
+            <div class="col-4 px-1">
+                <div class="card">
+                    <img class="card-img-top" src="{{image}}" alt="{{title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{title}}
+                            {{#if isHot}} <span class=' me-2 badge bg-warning rounded-pill'>НOT!</span> {{/if}}
+                            {{#if idNew}} <span class='badge bg-primary rounded-pill'>Нове</span> {{/if}}
+                        </h5>
+                        <p class="card-text">{{description}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/with}}
+
+        {{#with subscribe}}
+        <hr class='mx-0 mt-3 mb-5' />
+        <div class='card text-bg-dark'>
+            <div class='card-body p-2'>
+                <div class='card-title'>
+                    <h2>{{header}}</h2>
+                </div>
+                <p class='card-text my-1'>{{description}}</p>
+                {{#each buttons}}
+                <a href='{{link}}' class='btn btn-primary mx-0 my-1' target='_blank'>{{text}} </a>
+                <br />
+                {{/each}}
+            </div>
+        </div>
+        <hr class='mx-0 mt-5 mb-3' />
+        {{/with}}
+
+    </section>
+</main>
