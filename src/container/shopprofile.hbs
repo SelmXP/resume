@@ -1,0 +1,135 @@
+<main>
+    <section>
+        <h1>{{header}}</h1>
+
+        {{#with purchase}}
+        <div class="mx-0 mt-2 mb-5">
+            <ul class="nav nav-tabs">
+                {{#each tabs}}
+                <li class="nav-item">
+                    {{#if @first}}<a class="nav-link active" aria-current="page" href="#"><b>{{this}}</b></a>
+                    {{else}}<a class="nav-link" aria-current="page" href="#">{{this}}</a>{{/if}}
+                </li>
+                {{/each}}
+            </ul>
+            {{#with actionBlock}}
+            <div id="actionBlock" class="row mt-4 mb-0">
+                <div class="col-4 mx-0 pe-0">
+                    <input type="text" class="form-control my-1" id="inputPlace" placeholder="{{input.placeholder}}">
+                </div>
+                <div class="col-5 mx-0">
+                    {{#each buttons}}
+                    <a href="{{link}}" class="my-1 me-2 btn 
+                        {{#if isSuccess}}btn-success{{/if}} 
+                        {{#if isOutline}}btn-outline-success{{/if}}
+                        {{#if isDanger}}btn-danger{{/if}}">{{text}}</a>
+                    {{/each}}
+                </div>
+            </div>
+            {{/with}}
+            <hr class="border border-dark border-1 mx-0 mt-4 mb-2">
+            <div id="itemList" class="row m-0">
+                {{#each itemList}}
+                {{> purchaseItem}}
+                {{/each}}
+            </div>
+            <hr class="border border-dark border-1 mx-0 mt-5 mb-4">
+        </div>
+        {{/with}}
+
+        {{#with userInfo}}
+        <div id="userInfo">
+            <h2>{{title}}</h2>
+            <div class="card mt-4">
+                <div class="card-body">
+                    {{#each profileData}}
+                    {{#if @first}} <h3>{{this}}</h3>
+                    {{else}}
+                    <div class="card mt-4">
+                        <div class="card-body p-2">
+                            <div class="row">
+                                {{#each this}}
+                                <div class="col-4">
+                                    {{this.title}}
+                                    <h5>{{this.value}}</h5>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{/each}}
+                    <div class="card  mt-4">
+                        <div class="card-body p-2">
+                            <div class="row">
+                                {{#each buttons}}
+                                <div class="col-4">
+                                    <a href="{{link}}" target="_blank" class="btn mx-0 
+                                        {{#if isPrimary}}btn-primary{{/if}} 
+                                        {{#if isSecondary}}btn-outline-secondary{{/if}} 
+                                        {{#if isDanger}}btn-danger{{/if}}">{{text}}</a>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-2">
+                <div class="card-body">
+                    {{#each recipients}}
+                    {{#if @first}} <h3>{{this}}</h3>
+                    {{else}}
+                    <div class="row mx-0">
+                        {{#each this}}
+                        <div class="col-4 ps-0">
+                            <div class="card mt-4 px-1 me-0">
+                                <div class="card-body p-2">
+                                    <h5 class="mb-0">{{this.name}}</h5>
+                                    <p class="mb-0">{{this.phone}}</p>
+                                    {{#with this.button}}
+                                    <a href="{{link}}" target="_blank" class="btn mx-0 mt-2 btn-primary">{{text}}</a>
+                                    {{/with}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+
+            <div class="card mt-2">
+                <div class="card-body">
+                    {{#each contacts}}
+                    {{#if @first}} <h3>{{this}}</h3>
+                    {{else}}
+                    <div class="row mx-0">
+                        {{#each this}}
+                        <div class="col-4 ps-0">
+                            <div class="card mt-4 px-1 me-0">
+                                <div class="card-body p-2">
+                                    <p class="mb-2">{{this.title}}</p>
+                                    <h5 class="mb-2">{{this.value}}</h5>
+                                    {{#with this.button}}
+                                    <a href="{{link}}" target="_blank" class="btn mx-0 
+                                        {{#if isPrimary}}btn-primary{{/if}} 
+                                        {{#if isSecondary}}btn-outline-secondary{{/if}} 
+                                        {{#if isDanger}}btn-danger{{/if}}">{{text}}</a>
+                                    {{/with}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+        {{/with}}
+        <hr class="border border-dark border-1 mx-0 mt-5 mb-4">
+    </section>
+</main>
