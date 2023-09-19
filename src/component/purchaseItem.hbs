@@ -1,0 +1,35 @@
+<div class="row mt-3 d-flex align-items-center">
+	<div class="col-4 px-0 d-flex align-items-center">
+		<div>
+			{{number}}
+			<h5>{{status}}</h5>
+		</div>
+	</div>
+	<div class="col-2 px-0 d-flex align-items-center">
+		{{#with amount}}
+		<div>
+			{{title}}
+			<h5>{{value}}</h5>
+		</div>
+		{{/with}}
+	</div>
+	<div class="col-4 px-0 d-flex align-items-center">
+		{{#each images}}
+		<div class="card mx-1" style="width: 5rem;">
+			<img src={{this}} class='card-img' />
+		</div>
+		{{/each}}
+	</div>
+	<div class="col-2 px-0 d-flex align-items-center">
+		{{#with button}}
+		<div>
+			{{#if isPrimary}}
+			<a href='{{link}}' class='btn btn-primary' target='_blank'>{{text}} </a>
+			{{else}}
+			<a href='{{link}}' class='btn btn-primary-outline' target='_blank'>{{text}} </a>
+			{{/if}}
+		</div>
+		{{/with}}
+	</div>
+</div>
+<hr class='mx-0 mt-1 mb-1' />
