@@ -22,16 +22,16 @@
     <main>
         <section>
             {{> title data=name big=true}}
-            <div>
+            <p>
                 <b>Description:</b> {{description}}
-            </div>
-            <br>
-            <div>
+            </p>
+
+            <p>
                 <b>History:</b>
                 {{#with history}}
-                year: <date>{{year}}</date>, founder: {{founder}}<br>{{/with}}
-            </div>
-            <br>
+                year: <date>{{year}}</date>, founder: {{founder}}{{/with}}
+            </p>
+
             <hr>
 
             <div class="accordion" id="accordionExample">
@@ -195,14 +195,14 @@
             <hr>
             ==я спочатку цей код набрав, що внизу а потім з урока поняв що треба з бутстрапом===
 
-            <div>
+            <div class="mb-3">
                 <h4>Types:</h4>
                 <ul>
                     {{#each types}} <li> {{this}} </li> {{/each}}
                 </ul>
-            </div><br>
+            </div>
 
-            <div>
+            <div class="mb-3">
                 <h4>Syntax:</h4>
                 <ul>
                     <li>
@@ -226,30 +226,30 @@
                         {{#each syntax.classes}} {{this}}; {{/each}}
                     </li>
                 </ul>
-            </div><br>
+            </div>
 
-            <div>
+            <div class="mb-3">
                 <h4>Features:</h4>
                 <ul>
                     {{#each features}} <li> {{this}} </li> {{/each}}
                 </ul>
-            </div><br>
+            </div>
 
-            <div>
+            <div class="mb-3">
                 <h4>Libraries:</h4>
                 <ul>
                     {{#each libraries}} <li> {{this}} </li> {{/each}}
                 </ul>
-            </div><br>
+            </div>
 
-            <div>
+            <div class="mb-3">
                 <h4>Tools:</h4>
                 <ul>
                     {{#each tools}} <li> {{this}} </li> {{/each}}
                 </ul>
-            </div><br>
+            </div>
 
-            <div>
+            <div class="mb-3">
                 <h4>Community:</h4>
                 <ul>
                     {{#each community}}
@@ -258,7 +258,7 @@
                     </li>
                     {{/each}}
                 </ul>
-            </div><br>
+            </div>
         </section>
     </main>
 </div>
