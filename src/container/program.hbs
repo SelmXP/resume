@@ -10,7 +10,7 @@
             <h1>Program</h1>
         </div>
         <section>
-            <div>
+            <div class="mb-3">
                 <h2>Excursion</h2>
                 {{#with excursion}}
                 <h3>{{name}}</h3>
@@ -19,47 +19,46 @@
                 {{/with}}
                 <date>{{date}}</date>
             </div>
-            <br>
+
             <div>
                 <h4>Program:</h4>
                 <ul>
                     {{#each program}}
-                    <li>
+                    <li class="mb-3">
                         <div>
-                            <div>
-                                Name: {{name}}<br />
-                                Type: {{type}}<br />
-                                Duration: {{duration}}<br />
+                            <div class="mb-3">
+                                <p class="m-0">Name: {{name}}</p>
+                                <p class="m-0">Type: {{type}}</p>
+                                <p class="m-0">Duration: {{duration}}</p>
                             </div>
-                            <br />
+
 
                             {{#with details}}
                             <div>
                                 {{#if museum}}
                                 {{#with museum}}
                                 <div>
-                                    <b>Details of Museum:</b>
-                                    <br />
-                                    Name of Museum: {{name}} <br />
-                                    {{#with location}}
+                                    <p class="m-0"><b>Details of Museum:</b></p>
+                                    <p class="m-0">Name of Museum: {{name}}</p>
+                                    <p class="m-0">
+                                        {{#with location}}
                                     <address>
                                         Location: {{address}}, {{city}}, {{country}}
                                     </address>
                                     {{/with}}
-                                    <br />
+                                    </p>
                                     Exhibits:
-                                    <ul>
+                                    <ul class="mb-3">
                                         {{#each exhibits}}
                                         <li>
-                                            Name: {{name}} <br>
-                                            {{#if artist}}artist: {{artist}}<br>{{/if}}
-                                            Description: {{description}}<br>
-                                            {{#if audio_guide}}audioguide {{/if}}
-                                            <br>
+                                            <p class="m-0">Name: {{name}} </p>
+                                            {{#if artist}}<p class="m-0">artist: {{artist}}</p>{{/if}}
+                                            <p class="m-0">Description: {{description}}</p>
+                                            {{#if audio_guide}}<p class="m-0">audioguide </p>{{/if}}
                                         </li>
                                         {{/each}}
                                     </ul>
-                                    <br>
+
                                 </div>
                                 {{/with}}
                                 {{/if}}
@@ -67,15 +66,17 @@
                                 {{#if venue}}
                                 {{#with venue}}
                                 <div>
-                                    <b>Details of Venue:</b>
-                                    <br>
-                                    Name of Venue: {{name}}<br>
-                                    {{#with location}}
+                                    <p class="m-0"><b>Details of Venue:</b></p>
+
+                                    <p class="m-0">Name of Venue: {{name}}</p>
+                                    <p class="m-0">
+                                        {{#with location}}
                                     <address>
                                         Location: {{address}}, {{city}}, {{country}}
                                     </address>
                                     {{/with}}
-                                    <br />
+                                    </p>
+
                                 </div>
                                 {{/with}}
                                 {{/if}}
@@ -86,27 +87,26 @@
                                     <ul>
                                         {{#each performers}}
                                         <li>
-                                            Name: {{name}} <br>
-                                            Type:{{type}}<br>
-                                            <br>
+                                            <p class="m-0">Name: {{name}}</p>
+                                            <p class="m-0">Type:{{type}}</p>
                                         </li>
                                         {{/each}}
                                     </ul>
                                 </div>
                                 {{/if}}
 
-                                Guide:
-                                {{#with guide}}<br>
-                                Name: {{name}}<br>
-                                Language:{{language}}<br>
-                                Rating: {{rating}}<br><br>
+                                <p class="m-0">Guide:</p>
+                                {{#with guide}}
+                                <p class="m-0">Name: {{name}}</p>
+                                <p class="m-0">Language:{{language}}</p>
+                                <p class="m-0">Rating: {{rating}}</p>
                                 {{/with}}
                             </div>
                             {{/with}}
                             <hr />
                         </div>
                     </li>
-                    <br />
+
                     {{/each}}
                 </ul>
             </div>

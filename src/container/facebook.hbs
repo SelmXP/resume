@@ -18,7 +18,7 @@
                         <ul>
                             {{#each users}}
                             <li>
-                                <div class="btn-group">
+                                <div class="btn-group mb-3">
                                     <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         {{name}}
@@ -33,13 +33,13 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div> <br />
+                                </div>
                                 {{#if friends}}
-                                <b>Friends:</b>
+                                <p class="m-0"><b>Friends:</b></p>
                                 <ul>
+                                    {{#each friends}}
                                     <li>
-                                        {{#each friends}}
-                                        <div class="btn-group">
+                                        <div class="btn-group mb-3">
                                             <button type="button" class="btn btn-info dropdown-toggle"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                                 {{name}}
@@ -56,11 +56,11 @@
                                             </ul>
                                         </div>
                                         {{#if mutual_friends}}
-                                        <br /><b>Mutual Friends:</b>
-                                        <ul>
+                                        <p class="m-0"><b>Mutual Friends:</b></p>
+                                        <ul class="mb-3">
                                             {{#each mutual_friends}}
                                             <li>
-                                                <div class="btn-group">
+                                                <div class="btn-group mb-3">
                                                     <button type="button" class="btn btn-info dropdown-toggle"
                                                         data-bs-toggle="dropdown" aria-expanded="false">
                                                         {{name}}
@@ -77,11 +77,11 @@
                                                     </ul>
                                                 </div>
                                                 {{#if mutual_friends}}
-                                                <br /><b>Mutual Friends:</b>
+                                                <p class="m-0"><b>Mutual Friends:</b></p>
                                                 <ul>
                                                     {{#each mutual_friends}}
                                                     <li>
-                                                        <div class="btn-group">
+                                                        <div class="btn-group mb-3">
                                                             <button type="button" class="btn btn-info dropdown-toggle"
                                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                                                 {{name}}
@@ -104,9 +104,9 @@
                                             </li>
                                             {{/each}}
                                         </ul>
-                                        {{/if}} <br />
-                                        {{/each}}
+                                        {{/if}}
                                     </li>
+                                    {{/each}}
 
                                 </ul>
                                 {{/if}} {{!-- friends --}}
@@ -116,8 +116,8 @@
                                 <b>Groups:</b>
                                 <ul>
                                     {{#each groups}}
-                                    <li>
-                                        <div class="btn-group">
+                                    <li class="mb-3">
+                                        <div class="btn-group mb-3">
                                             <button type="button" class="btn btn-primary  dropdown-toggle"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                                 {{name}}
@@ -132,12 +132,12 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <br />
-                                        <b>Members</b>
+
+                                        <p class="m-0"><b>Members</b></p>
                                         <ul>
                                             {{#each members}}
                                             <li>
-                                                <div class="btn-group">
+                                                <div class="btn-group mb-3">
                                                     <button type="button" class="btn btn-info dropdown-toggle"
                                                         data-bs-toggle="dropdown" aria-expanded="false">
                                                         {{name}}
@@ -158,7 +158,7 @@
                                             {{/each}}
                                         </ul>
                                     </li>
-                                    <br />
+
                                     {{/each}}
                                 </ul>
 

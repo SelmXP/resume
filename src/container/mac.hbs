@@ -15,8 +15,8 @@
                         {{> title data=name}}
                     </div>
                     <div class="card-body text-start">
-                        Description: {{description}} <br>
-                        Category: {{category}} <br><br>
+                        <p class="m-0"> Description: {{description}}</p>
+                        <p class="mb-4"> Category: {{category}}</p>
                         <div class="card">
                             <div class="card-header">
                                 <h4>Features</h4>
@@ -51,14 +51,14 @@
                                     <ul class="list-group text-start">
                                         {{#each ports}}
                                         <li class="list-group-item">
-                                            type: {{type}}<br>
-                                            count: {{count}}<br>
+                                            <p class="m-0">type: {{type}}</p>
+                                            <p class="m-0">count: {{count}}</p>
                                             {{#if features}}
                                             features:
                                             <ul>
                                                 {{#each features}}
                                                 <li>
-                                                    {{this}}<br>
+                                                    <p class="m-0">{{this}}</p>
                                                 </li>
                                                 {{/each}}
                                             </ul>
@@ -69,13 +69,15 @@
                                 </li>
                                 <li class="list-group-item"><b>Battery:</b>
                                     {{#with battery}}
-                                    {{type}}, {{capacity}}, {{life}}<br>
-                                    {{/with}}</li>
+                                    <p class="m-0">{{type}}, {{capacity}}, {{life}}</p>
+                                    {{/with}}
+                                </li>
                                 <li class="list-group-item"><b>Weight: </b>{{weight}}</li>
                                 <li class="list-group-item"><b>Dimensions:</b>
                                     {{#with dimensions}}
-                                    height: {{height}}, width: {{width}}, depth: {{depth}}<br>
-                                    {{/with}}</li>
+                                    <p class="m-0">height: {{height}}, width: {{width}}, depth: {{depth}}</p>
+                                    {{/with}}
+                                </li>
                                 <li class="list-group-item"><b>Operating System:</b> {{operating_system}}</li>
                                 <li class="list-group-item"><b>Accessories:</b>
                                     <ul class="list-group text-start">

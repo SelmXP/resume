@@ -41,7 +41,117 @@ router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    page: { title: 'Resume | Main' },
+    layout: 'index',
+    buttons: [
+      {
+        text: 'Summary',
+        link: '/summary',
+        isSecondary: true,
+      },
+      {
+        text: 'Skills',
+        link: '/skills',
+        isSecondary: true,
+      },
+      {
+        text: 'Education',
+        link: '/education',
+        isSecondary: true,
+      },
+      {
+        text: 'Work',
+        link: '/work',
+        isSecondary: true,
+      },
+      {
+        text: 'Person',
+        link: '/person',
+        isSecondary: true,
+      },
+      {
+        text: 'Bio',
+        link: '/bio',
+        isSecondary: true,
+      },
+      {
+        text: 'Program',
+        link: '/program',
+        isSecondary: true,
+      },
+      {
+        text: 'Web',
+        link: '/web',
+        isSecondary: true,
+      },
+      {
+        text: 'JavaScript',
+        link: '/js',
+        isPrimary: true,
+      },
+      {
+        text: 'Car',
+        link: '/car',
+        isPrimary: true,
+      },
+      {
+        text: 'Mac',
+        link: '/mac',
+        isPrimary: true,
+      },
+      {
+        text: 'Facebook',
+        link: '/facebook',
+        isPrimary: true,
+      },
+      {
+        text: 'Task21',
+        link: '/task21',
+        isPrimary: true,
+      },
+      {
+        text: 'Task22',
+        link: '/task22',
+        isPrimary: true,
+      },
+      {
+        text: 'Task31',
+        link: '/task31',
+        isPrimary: true,
+      },
+      {
+        text: 'ShopHome',
+        link: '/shophome',
+        isPrimary: true,
+      },
+      {
+        text: 'ShopOrder',
+        link: '/shoporder',
+        isPrimary: true,
+      },
+      {
+        text: 'ShopCart',
+        link: '/shopcart',
+        isPrimary: true,
+      },
+      {
+        text: 'ShopProfile',
+        link: '/shopprofile',
+        isPrimary: true,
+      },
+      {
+        text: 'ShopProfile',
+        link: '/shopreview',
+        isPrimary: true,
+      },
+      {
+        text: 'ShopCatalog',
+        link: '/shopcatalog',
+        isPrimary: true,
+      },
+    ],
+  })
   //                  ↑↑ сюди вводимо JSON дані
 })
 
@@ -1220,7 +1330,7 @@ router.get('/task31', function (req, res) {
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('task31', {
     layout: 'basic',
-    page: { title: 'Resume | Task3122' },
+    page: { title: 'Resume | Task31' },
     navigation: {
       links: [
         {

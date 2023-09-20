@@ -16,15 +16,15 @@
                 {{#each languages}}
                 <ul>
                     <li>
-                        {{name}}, ver:{{version}}, ({{description}})<br>
+                        <p class="m-0">{{name}}, ver:{{version}}, ({{description}})</p>
 
                         {{#if elements}}
                         <h3>Elements</h3>
                         {{#each elements}}
                         <ul>
-                            <li>
-                                {{name}}, ({{description}})<br>
-                                <b>Attributes:</b><br>
+                            <li class="mb-3">
+                                <p class="m-0">{{name}}, ({{description}})</p>
+                                <p class="m-0"><b>Attributes:</b></p>
                                 {{#each attributes}}
                                 <ul>
                                     <li>
@@ -33,7 +33,7 @@
                                 </ul>
                                 {{/each}}
                             </li>
-                            <br>
+
                         </ul>
                         {{/each}}
                         {{/if}}
@@ -41,40 +41,40 @@
                         {{#if properties}}
                         <h3>Properties</h3>
                         {{#each properties}}
-                        <ul>
-                            <li>
-                                {{name}}, ({{description}})<br>
-                                <b>Values:</b><br>
+                        <ul class="mb-3">
+                            <li class="mb-3">
+                                <p class="m-0">{{name}}, ({{description}})</p>
+                                <p class="m-0"><b>Values:</b></p>
                                 {{#each values}}
                                 <ul>
                                     <li>
-                                        {{value}}, ({{description}})<br>
+                                        <p class="m-0">{{value}}, ({{description}})</p>
                                     </li>
                                 </ul>
                                 {{/each}}
                             </li>
-                            <br>
+
                         </ul>
                         {{/each}}
                         {{/if}}
-                        <br>
+
 
                         {{#if functions}}
                         <h3>Functions</h3>
                         {{#each functions}}
                         <ul>
-                            <li>
-                                {{name}}, ({{description}})<br>
-                                <b>Parameters:</b><br>
+                            <li class="mb-3">
+                                <p class="m-0">{{name}}, ({{description}})</p>
+                                <p class="m-0"><b>Parameters:</b></p>
                                 {{#each parameters}}
                                 <ul>
                                     <li>
-                                        {{name}}, {{type}}, ({{description}})<br>
+                                        <p class="m-0">{{name}}, {{type}}, ({{description}})</p>
                                     </li>
                                 </ul>
                                 {{/each}}
                             </li>
-                            <br>
+
                         </ul>
                         {{/each}}
                         {{/if}}
