@@ -1,0 +1,150 @@
+<main>
+    <section>
+        {{#with breadcrumb}}
+        <div id="breadcrumb">
+            <nav class="mx-0 mt-1" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    {{#each this}}
+                    {{#unless url}}
+                    <li class="breadcrumb-item active" aria-current="page">{{name}}</li>
+                    {{else}}
+                    <li class="breadcrumb-item "><a href="{{url}}">{{name}}</a></li>
+                    {{/unless}}
+                    {{/each}}
+                </ol>
+            </nav>
+        </div>
+        {{/with}}
+
+        <h1>{{header}}</h1>
+
+        {{#with sortBlock}}
+        <div id="sortBlock">
+            <div class="row px-2 pt-4 pb-5">
+                {{#each this}}
+                <div class="col-3 px-1 my-2">
+                    <label class="form-label my-0">{{label}}</label>
+                    <select class="form-select">
+                        <option select>{{placeholder}}</option>
+                        {{#each options}}
+                        <option {{value}}>{{text}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/with}}
+
+        <div class="row mb-5">
+
+            <div class="col-4 px-1 md-3">
+                {{#with filterBlock}}
+                <div id="filterBlock">
+                    <div class="card">
+                        <div class="card-body">
+                            {{#each this}}
+                            <div>
+                                {{#if title}}
+                                {{#unless @first}}
+                                <hr class="mx-0 my-3">{{/unless}}
+                                <p class="my-2">{{title}}</p>{{/if}}
+
+                                {{#if list}}
+                                {{#each list}}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {{value}}
+                                    </label>
+                                </div>
+                                {{/each}}
+                                {{/if}}
+
+                                {{#if input}}
+                                <input type="text" class="form-control my-3" id="inputPlace"
+                                    placeholder="{{input.placeholder}}">
+                                {{/if}}
+
+                                {{#if options}}
+                                {{#each options}}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {{value}}
+                                    </label>
+                                </div>
+                                {{/each}}
+                                {{/if}}
+
+                                {{#if range}}
+                                {{#each range}}
+                                <input type="text" class="form-control my-3" id="inputPlace" placeholder="{{this}}">
+                                {{/each}}
+                                {{/if}}
+
+                                {{#with button}}
+                                {{> shopButtons isOutlineSecondary=true blank=true}}
+                                {{/with}}
+
+                                {{#each this}}
+                                {{#if this}}
+                                {{#with this}}
+                                {{#if title}}
+                                <hr class="mx-0 my-3">
+                                <p class="my-2">{{title}}</p>
+                                {{#if options}}
+
+                                {{#each options}}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {{value}}
+                                    </label>
+                                </div>
+                                {{/each}}
+                                {{/if}}
+
+                                {{/if}}
+                                {{/with}}
+                                {{/if}}
+                                {{/each}}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+
+            <div class="col-8">
+                {{#with goodsList}}
+                <div class="row" id="goodsList">
+                    {{#each this}}
+                    {{>catalogItem}}
+                    {{/each}}
+                </div>
+                {{/with}}
+            </div>
+        </div>
+
+        {{> shopService}}
+        {{!-- {{#with service}}
+        <div class='card text-bg-success text-center'>
+            <div class='card-body p-2'>
+                <div class='card-title'>
+                    <h2>{{title}}</h2>
+                </div>
+                <p class='card-text my-1'>{{description}}</p>
+                {{#each buttons}}
+                <a href='{{link}}' class='btn btn-primary mx-0 my-1' target='_blank'>{{text}} </a>
+                <br />
+                {{/each}}
+            </div>
+        </div>
+        {{/with}} --}}
+
+    </section>
+    <hr class="border border-dark border-1 mx-3 mt-5 mb-0">
+
+</main>
